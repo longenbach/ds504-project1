@@ -2,11 +2,11 @@
 
 crawler.py is used for get the details of a product through Walmart open API.
 
-Pre-requirements:
-requests, HTMLParser
+Pre-requirement:
+requests
 
 ## Usage
-#### Please make sure you have the pre-requirements packages
+#### Please make sure you have installed requests
 Edit "collectdata.py" script:
 1. add your own Walmart API key
 2. Construct a UPC generator and add the generated UPC to the variable "upc_list"
