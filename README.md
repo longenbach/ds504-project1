@@ -3,7 +3,7 @@
 crawler.py is used for get the details of a product through Walmart open API.
 
 Pre-requirements:
-requests, json, HTMLParser
+requests, HTMLParser
 
 ## Usage
 #### Please make sure you have the pre-requirements packages
