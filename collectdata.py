@@ -28,4 +28,6 @@ for i in range(len(upc_list)):
     # parameter upc should be string with 12 digits
     results.append(wal.upc_search(upc_list[i]))
 
+# If you run the code locally, change the code below
+# save the variable "results" which is a list of dictionaries
 print(results)
