@@ -128,10 +128,39 @@ class Walcrawl:
         r = requests.get(url, params=request_params)
         # print(r.url)
         if r.status_code == 200 or r.status_code == 201:
-            return WalmartProduct(r.json())
+            # return WalmartProduct(r.json())
+            # This is for collecting raw data
+            return r.json()["items"][0]
         else:
+            # if r.status_code == 400:
+            #     #Send exception detail when it is a 400 error
+            #     raise InvalidRequestException(r.status_code, detail=r.json()['errors'][0]['message'])
+            # else:
+            #     raise InvalidRequestException(r.status_code)
+            data = {}
+            data["itemId"] = -1
+            data["upc"] = upc
             if r.status_code == 400:
-                #Send exception detail when it is a 400 error
-                raise InvalidRequestException(r.status_code, detail=r.json()['errors'][0]['message'])
+                data["name"] = "400-" + r.json()["errors"][0]["message"]
             else:
-                raise InvalidRequestException(r.status_code)
+                data["name"] = str(r.status_code) + "-" + self.get_error(r.status_code)
+            return data
+
+    # return error message
+    def get_error(self, code):
+        if code == 403:
+            return 'Forbidden'
+        elif code == 404:
+            return 'Wrong endpoint'
+        elif code == 414:
+            return 'Request URI too long'
+        elif code == 500:
+            return 'Internal Server Error'
+        elif code == 502:
+            return 'Bad Gateway'
+        elif code == 503:
+            return 'Service Unavailable/ API maintenance'
+        elif code == 504:
+            return 'Gateway Timeout'
+        else:
+            return "Other Error"
