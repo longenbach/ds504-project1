@@ -12,9 +12,10 @@ def upc_generate(num_upc, start, end, seed=3):
     com_upc = "885306"
     for _ in range(num_upc):
         last_ps = str(randint(start, end))
-        if(len(last_pc)<6):
+        if(len(last_ps)<6):
             # upc = first_p + maf + "0"*(6 - len(last_ps))
-            upc = com_upc + "0"*(6 - len(last_ps))
+            upc = com_upc + "0"*(6 - len(last_ps)) + last_ps
+            upc_list.append(upc)
     # for _ in range(num_upc):
     #     upc = str(randint(start, end))
     #     if(len(upc)<12):
