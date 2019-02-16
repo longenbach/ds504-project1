@@ -1,4 +1,5 @@
 import time
+import json
 
 import crawler as cl
 from genupc import upc_generate
@@ -6,10 +7,12 @@ from genupc import upc_generate
 # Add your API Key here
 API_KEY = ""
 # number of candidate upc
-UPC_NUM = 4000
+UPC_NUM = 100
+
 # range of UPC
-START = 1
-END = 1000000000000
+START = 0
+
+END = 5000
 
 
 # create a instance of crawler using apikey
@@ -20,12 +23,6 @@ results = []
 # store all the UPC candidates
 # upc_list = []
 upc_list = upc_generate(UPC_NUM, START, END)
-
-'''
-Construct a UPC generator based on different purpose
-Add the generated UPC to the upc_list
-'''
-
 
 
 for i in range(len(upc_list)):
@@ -39,4 +36,6 @@ for i in range(len(upc_list)):
 
 # If you run the code locally, change the code below
 # save the variable "results" which is a list of dictionaries
-print(results)
+# print(results)
+with open("results.json", "w") as f:
+    json.dump(results, f)
