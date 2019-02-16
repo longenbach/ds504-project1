@@ -1,9 +1,16 @@
 import time
 
 import crawler as cl
+from genupc import upc_generate
 
 # Add your API Key here
 API_KEY = ""
+# number of candidate upc
+UPC_NUM = 4000
+# range of UPC
+START = 1
+END = 1000000000000
+
 
 # create a instance of crawler using apikey
 wal = cl.Walcrawl(API_KEY)
@@ -11,12 +18,14 @@ wal = cl.Walcrawl(API_KEY)
 results = []
 
 # store all the UPC candidates
-upc_list = []
+# upc_list = []
+upc_list = upc_generate(UPC_NUM, START, END)
 
 '''
 Construct a UPC generator based on different purpose
 Add the generated UPC to the upc_list
 '''
+
 
 
 for i in range(len(upc_list)):
