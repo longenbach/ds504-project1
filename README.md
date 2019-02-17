@@ -13,6 +13,8 @@ Edit "collectdata.py" script:
   (You are also able to change COMPANY_UPC which is the manufacturer UPC (Default=885306))
 4. Run collectdata.py.
 
-## Please pay attention to the number of queries allowed by API per day and per second
+#### The result file name will have a timestamp, so that you won't overwrite the same file. 
 
-## This code is used for collect "ground truth". You can change the code in genupc.py to perform our sampling method.
+#### Please pay attention to the number of queries allowed by API per day and per second
+
+#### This code is used for collect "ground truth". You can change the code in genupc.py to perform our sampling method.
