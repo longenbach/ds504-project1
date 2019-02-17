@@ -1,18 +1,19 @@
-import random
+# import random
 from random import randint
 
-def upc_generate(num_upc, start, end, seed=3):
-    random.seed(seed)
+def upc_generate(start, end, com_upc="885306"):
+    # random.seed(seed)
     upc_list = []
     # first_p = randint(0, 4)
     # maf = "40410"
 
-    # Fix the first 6 digits
-    # Try
-    com_upc = "885306"
-    for _ in range(num_upc):
-        last_ps = str(randint(start, end))
-        if(len(last_ps)<6):
+    # # Fix the first 6 digits
+    # # First 6-digit for a manufacturer
+    # com_upc = "885306"
+    for i in range(start, end):
+        # last_ps = str(randint(start, end))
+        last_ps = str(i)
+        if(len(last_ps)<=6):
             # upc = first_p + maf + "0"*(6 - len(last_ps))
             upc = com_upc + "0"*(6 - len(last_ps)) + last_ps
             upc_list.append(upc)
