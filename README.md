@@ -9,7 +9,7 @@ requests
 #### Please make sure you have installed requests
 Edit "collectdata.py" script:
 1. Add your own Walmart API key
-2. Change START and END to be your own range of exhaustive search (Min=1, Max=1000000)
+2. Change START and END to be your own range of exhaustive search (Min=1, Max=100000)
   (You are also able to change COMPANY_UPC which is the manufacturer UPC (Default=885306))
 4. Run collectdata.py.
 
