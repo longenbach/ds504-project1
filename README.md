@@ -8,8 +8,11 @@ requests
 ## Usage
 #### Please make sure you have installed requests
 Edit "collectdata.py" script:
-1. add your own Walmart API key
-2. Construct a UPC generator and add the generated UPC to the variable "upc_list"
-3. If you run the code locally, change the last line to save the results in property file
+1. Add your own Walmart API key
+2. Change START and END to be your own range of exhaustive search (Min=1, Max=1000000)
+  (You are also able to change COMPANY_UPC which is the manufacturer UPC (Default=885306))
+4. Run collectdata.py.
 
 ## Please pay attention to the number of queries allowed by API per day and per second
+
+## This code is used for collect "ground truth". You can change the code in genupc.py to perform our sampling method.
