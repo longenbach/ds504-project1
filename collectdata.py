@@ -27,7 +27,7 @@ upc_list = upc_generate(START, END, COMPANY_UPC)
 
 for i in range(len(upc_list)):
     # make sure you won't run out queries per day (5000/day)
-    if(i>=4500):
+    if(i>=5000):
         break
     if(i%5 == 0):
         time.sleep(1.5)
