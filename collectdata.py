@@ -8,9 +8,9 @@ from genupc import upc_generate
 API_KEY = ""
 # # Choose the number of candidate upc you want to query, max = 5000/day
 # UPC_NUM = 4500
-# Choose the range of UPC's last 6 digits
+# Choose the range of UPC's last 5 digits
 START = 1
-END = 1000000
+END = 100000
 # Fix the first 6 digits which is the manufacturer
 COMPANY_UPC = "885306"
 
@@ -39,6 +39,6 @@ for i in range(len(upc_list)):
 # save the variable "results" which is a list of dictionaries
 # print(results)
 timestr = time.strftime("%Y%m%d-%H%M%S")
-file_name = timestr + "results.json"
+file_name = "./groundTruth/" + timestr + "results.json"
 with open(file_name, "w") as f:
     json.dump(results, f)
