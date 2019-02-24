@@ -38,7 +38,7 @@ def upc_sampling(fix=3, com_upc="885306", random_proportion=0.1, seed=1):
     #     for i in range(exh_range):
     #         upc = com_upc + "0"*(fix - len(fix_digit)) + fix_digit
     random.seed(seed)
-    fix_digit_list = random.sample(xrange(math.pow(10, fix)), fix_sampling_num)
+    fix_digit_list = random.sample(range(math.pow(10, fix)), fix_sampling_num)
     fix_list = ["0"*(fix - len(str(x))) + str(x) for x in fix_digit_list]
     exh_range = math.pow(10, 5 - fix)
     for p in fix_list:
