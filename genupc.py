@@ -40,7 +40,7 @@ def upc_sampling(fix=3, com_upc="885306", random_proportion=0.1, seed=1):
     random.seed(seed)
     fix_digit_list = random.sample(range(int(math.pow(10, fix))), fix_sampling_num)
     fix_list = ["0"*(fix - len(str(x))) + str(x) for x in fix_digit_list]
-    exh_range = math.pow(10, 5 - fix)
+    exh_range = int(math.pow(10, 5 - fix))
     for p in fix_list:
         fix_upc = com_upc + p
         for i in range(exh_range):
