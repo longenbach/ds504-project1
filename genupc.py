@@ -28,9 +28,9 @@ def upc_generate(start, end, com_upc="885306"):
     #     upc_list.append(upc)
     return upc_list
 
-def upc_sampling(fix=3, com_upc="885306", random_proportion=0.1, seed=1):
+def upc_sampling(fix=3, com_upc="885306", seed=1, interval_num=100, interval_sampling_num=10): #random_proportion=0.1):
     upc_list = []
-    fix_sampling_num = int(math.pow(10, fix)*random_proportion)
+    # fix_sampling_num = int(math.pow(10, fix)*random_proportion)
     # seed = 1
     # for _ in range(fix_sampling_num):
     #     random.seed(seed)
@@ -38,7 +38,11 @@ def upc_sampling(fix=3, com_upc="885306", random_proportion=0.1, seed=1):
     #     for i in range(exh_range):
     #         upc = com_upc + "0"*(fix - len(fix_digit)) + fix_digit
     random.seed(seed)
-    fix_digit_list = random.sample(range(int(math.pow(10, fix))), fix_sampling_num)
+    # fix_digit_list = random.sample(range(int(math.pow(10, fix))), fix_sampling_num)
+    interval_sampling_index = random.sample(range(interval_num), interval_sampling_num)
+    fix_digit_list = []
+    for n in interval_sampling_index:
+        fix_digit_list += list(range(n*int(math.pow(10, fix)/interval_num), (n+1)*int(math.pow(10, fix)/interval_num)))
     fix_list = ["0"*(fix - len(str(x))) + str(x) for x in fix_digit_list]
     exh_range = int(math.pow(10, 5 - fix))
     for p in fix_list:
