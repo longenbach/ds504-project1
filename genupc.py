@@ -29,6 +29,11 @@ def upc_generate(start, end, com_upc="885306"):
     return upc_list
 
 def upc_sampling(fix=3, com_upc="885306", seed=1, interval_num=100, interval_sampling_num=10): #random_proportion=0.1):
+    if(interval_sampling_num>interval_num):
+        raise ValueError("Number of sampled intervals cannot be greater than total number of intervals")
+    if(int(math.pow(10. fix)) % interval_num !=0):
+        raise ValueError("Fixed digits space cannot be divided into even intervals")
+
     upc_list = []
     # fix_sampling_num = int(math.pow(10, fix)*random_proportion)
     # seed = 1
