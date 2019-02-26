@@ -57,7 +57,7 @@ if __name__ == "__main__":
     else:
         data = []
     try:
-        test = sampling(10, 100, 10, 3)
+        test = sampling(iteration_time=5, interval_num=100, interval_sampling_num=10, fix_digit_num=3)
         data.append(test)
         with open(FILENAME, "w") as w:
             json.dump(data, w)
